@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Início</a>
+                    <a class="nav-link" href="index.jsp">Início</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="sobre.jsp">Sobre</a>
@@ -41,7 +41,7 @@
             </ul>
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="btn btn-primary" href=login.html>Login</a>
+                    <a class="btn btn-primary" href=login.jsp>Login</a>
                 </li>
             </ul>
         </div>
@@ -65,7 +65,7 @@
 
             <div class="options display-flex">
                 <span class="bg-green">Programação</span>
-                <span class="bg-blue"><a href="criar-conta.html">Inscrever-se</a></span>
+                <span class="bg-blue"><a href="signup.jsp">Inscrever-se</a></span>
             </div>
 
             <div class="display-flex mt-3 text-gray">
@@ -139,7 +139,7 @@
                 <li><i class="fas fa-chevron-right"></i>Familiarizar-se com estruturas de dados básicas e conceitos de
                     controle de fluxo, como loops e condicionais.
                 </li>
-                <li><a href="criar-conta.html" class="btn btn-primary btn-lg">Inscrever-se</a></li>
+                <li><a href="signup.jsp" class="btn btn-primary btn-lg">Inscrever-se</a></li>
             </ul>
         </aside>
     </section>
@@ -154,7 +154,7 @@
         <div class="course-cards">
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-1.jpg" alt="">
                     </div>
@@ -166,7 +166,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-4.jpg" alt="">
                     </div>
@@ -178,7 +178,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-3.jpg" alt="">
                     </div>
@@ -190,7 +190,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-2.jpg" alt="">
                     </div>
@@ -226,11 +226,10 @@
         <div>
             <h5 class="text-uppercase">Links Uteis</h5>
             <ul>
-                <li><a href="autores.html"><i class="fas fa-chevron-right"></i> Autores</a></li>
                 <li><a href="sobre.jsp"><i class="fas fa-chevron-right"></i> Sobre</a></li>
                 <li><a href="cursos.jsp"><i class="fas fa-chevron-right"></i> Cursos</a></li>
                 <li><a href="contactos.jsp"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                <li><a href="criar-conta.html"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
+                <li><a href="signup.jsp"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
     </section>
