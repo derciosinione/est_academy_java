@@ -174,7 +174,7 @@
         <div class="course-cards">
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-1.jpg" alt="">
                     </div>
@@ -186,7 +186,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-4.jpg" alt="">
                     </div>
@@ -198,7 +198,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-3.jpg" alt="">
                     </div>
@@ -210,7 +210,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="cursos-detalhes.html">
+                <a href="cursos-detalhes.jsp">
                     <div class="course-img">
                         <img src="Img/courses-2.jpg" alt="">
                     </div>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +16,7 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-    <?php
-        include_once 'SideBarMenu.php';
-    ?>
+    <%@ include file="SideBarMenu.jsp" %>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -33,24 +34,22 @@
                     <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
                 </div>
 
-                <!-- Circular avatar -->
-                <?php include_once 'circularAvatar.php' ?>
+                 <%-- Circular avatar --%>
+                <jsp:include page="circularAvatar.jsp" />
 
             </div>
         </div>
 
         <div style="width: 91%; margin: 0 auto;">
-            <?php include_once 'displayMessageIfExists.php'; ?>
+            <jsp:include page="displayMessageIfExists.jsp" />
         </div>
 
         <!-- MAIN BODY -->
         <div class="main-body">
 
-            <?php
-            include_once 'settings-aside.php';
-            global  $loggedUser;
-            ?>
-
+            
+            <jsp:include page="settings-aside.jsp" />
+            
             <section>
                 <h3 class="mt15 ml15 mb15">Informações Pessoais</h3>
                 <div class="horizontal-line"></div>
@@ -61,32 +60,32 @@
                         <div class="input-box">
                         <label>
                             Nome
-                            <input placeholder="myacademy" type="text" name="name" value="<?php echo htmlspecialchars($loggedUser->name); ?>">
+                            <input placeholder="myacademy" type="text" name="name">
                         </label>
 
                         <label>
                             Email
-                            <input placeholder="myacademy@gmail.com" type="text" name="email" value="<?php echo htmlspecialchars($loggedUser->email); ?>">
+                            <input placeholder="myacademy@gmail.com" type="text" name="email">
                         </label>
 
                         <label>
                             Username
-                            <input placeholder="myacademy" type="text" name="username" value="<?php echo htmlspecialchars($loggedUser->username); ?>">
+                            <input placeholder="myacademy" type="text" name="username">
                         </label>
 
                         <label>
                             NIF
-                            <input placeholder="000 000 000" type="text" name="nif" value="<?php echo htmlspecialchars($loggedUser->getNif()); ?>">
+                            <input placeholder="000 000 000" type="text" name="nif">
                         </label>
 
                         <label>
                             Contacto
-                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber" value="<?php echo htmlspecialchars($loggedUser->phoneNumber); ?>">
+                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber">
                         </label>
 
                         <label>
                             Data de Nascimento
-                            <input placeholder="YYYY-MM-DD" type="text" name="birthday" value="<?php echo htmlspecialchars($loggedUser->birthDay); ?>">
+                            <input placeholder="YYYY-MM-DD" type="text" name="birthday">
                         </label>
                     </div>
                         <input onclick="" onsubmit="" class="mt30 save-info-btn" type="submit" value="SALVAR">

@@ -13,7 +13,7 @@
 
 <div class="board">
 
-<%@ include file="SideBarMenu.jsp" %>
+    <%@ include file="SideBarMenu.jsp" %>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -31,8 +31,8 @@
                     <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
                 </div>
 
-                <!-- Circular avatar -->
-                <?php include_once 'circularAvatar.php' ?>
+                <%-- Circular avatar --%>
+                <jsp:include page="circularAvatar.jsp" />
 
             </div>
         </div>

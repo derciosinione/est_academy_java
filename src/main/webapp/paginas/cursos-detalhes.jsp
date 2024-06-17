@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.jsp">Início</a>
+                    <a class="nav-link" href="index.html">Início</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="sobre.html">Sobre</a>
@@ -38,7 +41,7 @@
             </ul>
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="btn btn-primary" href="login.jsp">Login</a>
+                    <a class="btn btn-primary" href=login.html>Login</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +65,7 @@
 
             <div class="options display-flex">
                 <span class="bg-green">Programação</span>
-                <span class="bg-blue"><a href="signup.jsp">Inscrever-se</a></span>
+                <span class="bg-blue"><a href="criar-conta.html">Inscrever-se</a></span>
             </div>
 
             <div class="display-flex mt-3 text-gray">
@@ -108,7 +111,7 @@
                 <p>O curso tem uma duração de 12 semanas, com 5 horas de aula por semana.</p>
             </div>
 
-            <audio src="../ZOldProject/audio.m4a" controls>Audio de Introdução</audio>
+            <audio src="resources/audio.m4a" controls>Audio de Introdução</audio>
 
             <div class="video-frame">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/leBJc3VyZ5s?si=vfpEeA0F_1-EPAjN"
@@ -136,7 +139,7 @@
                 <li><i class="fas fa-chevron-right"></i>Familiarizar-se com estruturas de dados básicas e conceitos de
                     controle de fluxo, como loops e condicionais.
                 </li>
-                <li><a href="signup.jsp" class="btn btn-primary btn-lg">Inscrever-se</a></li>
+                <li><a href="criar-conta.html" class="btn btn-primary btn-lg">Inscrever-se</a></li>
             </ul>
         </aside>
     </section>
@@ -227,7 +230,7 @@
                 <li><a href="sobre.html"><i class="fas fa-chevron-right"></i> Sobre</a></li>
                 <li><a href="cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
                 <li><a href="contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                <li><a href="signup.jsp"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
+                <li><a href="criar-conta.html"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
     </section>

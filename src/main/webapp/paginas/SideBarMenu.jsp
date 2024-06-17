@@ -1,28 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ include file="Constants.jsp" %>
-<%@ include file="UserModel.jsp" %>
+<%@ include file="LoggedUser.jsp" %>
 
 <%
-	String currentFileName = request.getServletPath().toLowerCase().replace(".jsp", "").replace("/paginas/", "");
-   	
-   	ArrayList<String> activeSettingsPages = new ArrayList<>(Arrays.asList("settings", "account-profile", "settings-change-password", "settings-about"));
+    String currentFileName = request.getServletPath().toLowerCase().replace(".jsp", "").replace("/paginas/", "");
 
-  	UserModel loggedUser = new UserModel();
-  	
-  	boolean isActive = activeSettingsPages.contains(currentFileName);
-  	
-  	boolean isLogged = session.getAttribute("isLogged") != null ? (boolean) session.getAttribute("isLogged") : false;
-  	
-  	if(isLogged){
-  		loggedUser.profileId = (int) session.getAttribute("profileId");
-  		loggedUser.name = (String) session.getAttribute("name");
-  		loggedUser.email = (String) session.getAttribute("email");
-  		loggedUser.profileName = (String) session.getAttribute("Admin");
-  		loggedUser.avatarUrl = (String) session.getAttribute("avatarUrl");
-  		loggedUser.profileName = (String) session.getAttribute("profileName");
-  	}
+    ArrayList<String> activeSettingsPages = new ArrayList<>(Arrays.asList("settings", "account-profile", "settings-change-password", "settings-about"));
+
+    boolean isActive = activeSettingsPages.contains(currentFileName);
+
 %>
 
 
@@ -30,7 +20,7 @@
 <aside>
     <!-- SIDE BAR HEADER -->
     <div class="sidebar-header">
-        <a href="index.php"><span>My<span>Academy</span></span></a>
+        <a href="index.jsp"><span>My<span>Academy</span></span></a>
     </div>
 
 
@@ -51,15 +41,16 @@
             <li>
                 <a href="registrations.jsp">
                     <i class="fas fa-clipboard-list"></i>
-                    <span>Inscrições</span>
+                    <span>InscriÃ§Ãµes</span>
                 </a>
             </li>
         </ul>
 
-         <ul <% if (currentFileName.equals("courses") || currentFileName.equals("course-detail")) {%> class="active-sidebar-menu" <%} %> >
+        <ul <% if (currentFileName.equals("courses") || currentFileName.equals("course-detail")) {%>
+                class="active-sidebar-menu" <%} %> >
             <div class="active-sidebar-menu-line"></div>
             <li>
-                <a href="courses.php">
+                <a href="courses.jsp">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Cursos</span>
                 </a>
@@ -67,53 +58,42 @@
         </ul>
 
         <% if (loggedUser.profileId != Constants.STUDENT) { %>
-        
-       <ul <% if (currentFileName.equals("students")) {%> class="active-sidebar-menu" <%} %> >
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="students.jsp">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>Alunos</span>
-                    </a>
-                </li>
-            </ul>
 
-               <ul <% if (currentFileName.equals("instructors")) {%> class="active-sidebar-menu" <%} %> >
-                 <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="instructors.php">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Docentes</span>
-                    </a>
-                </li>
-            </ul>
+        <ul <% if (currentFileName.equals("students")) {%> class="active-sidebar-menu" <%} %> >
+            <div class="active-sidebar-menu-line"></div>
+            <li>
+                <a href="students.jsp">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Alunos</span>
+                </a>
+            </li>
+        </ul>
 
-       
-                <% if (loggedUser.profileId != Constants.INSTRUCTOR) { %>
-              
-               <ul <% if (currentFileName.equals("admin") || currentFileName.equals("create-user") || currentFileName.equals("user-detail")) {%> class="active-sidebar-menu" <%} %> >
-               
-                    <div class="active-sidebar-menu-line"></div>
-                    <li>
-                        <a href="admin.php">
-                            <i class="fas fa-user-shield"></i>
-                            <span>Admin</span>
-                        </a>
-                    </li>
-                </ul>
+        <% if (loggedUser.profileId != Constants.INSTRUCTOR) { %>
 
-        <%     }
+        <ul <% if (currentFileName.equals("users") || currentFileName.equals("create-user") || currentFileName.equals("user-detail")) {%>
+                class="active-sidebar-menu" <%} %> >
+
+            <div class="active-sidebar-menu-line"></div>
+            <li>
+                <a href="users.jsp">
+                    <i class="fas fa-user-shield"></i>
+                    <span>UsuÃ¡rios</span>
+                </a>
+            </li>
+        </ul>
+
+        <% }
         } %>
-       
-      
 
-      <%-- <ul <?php if (in_array($currentFileName, $activeSettingsPages)) echo 'class="active-sidebar-menu"' ?>> --%>  
+
+        <%-- <ul <?php if (in_array($currentFileName, $activeSettingsPages)) echo 'class="active-sidebar-menu"' ?>> --%>
         <ul <%= isActive ? "class=\"active-sidebar-menu\"" : "" %>>
             <div class="active-sidebar-menu-line"></div>
-            <li><a href="settings.php">
-                    <i class="fas fa-cogs"></i>
-                    <span>Settings</span>
-                </a>
+            <li><a href="settings.jsp">
+                <i class="fas fa-cogs"></i>
+                <span>Settings</span>
+            </a>
             </li>
         </ul>
 
@@ -132,11 +112,13 @@
                 <img alt=""
                      src="<%= loggedUser.avatarUrl %>">
             </div>
-           
+
             <div class="user-information">
-                <p class="blackOpacity smallText"><%= loggedUser.profileName %></p>
-                <p class="bold blackText"><%= loggedUser.name %></p>
-                <a href="settings.php">
+                <p class="blackOpacity smallText"><%= loggedUser.profileName %>
+                </p>
+                <p class="bold blackText"><%= loggedUser.name %>
+                </p>
+                <a href="settings.jsp">
                     <button>Ver Perfil</button>
                 </a>
             </div>

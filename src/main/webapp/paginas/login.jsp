@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 
 <%--<%@ include file="RedirectNonLoggedUser.jsp" %>--%>
 
@@ -16,10 +16,10 @@
 <%--%>--%>
 
 
-<% 
+<%
 
-List<String> messages = (List<String>) session.getAttribute("warning_message");
-session.removeAttribute("warning_message");
+    List<String> messages = (List<String>) session.getAttribute("warning_message");
+    session.removeAttribute("warning_message");
 %>
 
 <!doctype html>
@@ -38,7 +38,7 @@ session.removeAttribute("warning_message");
 <div class="login-container">
     <div class="content">
         <nav>
-            <a href="index.php"><span class="my-logo">My<span>Academy</span></span></a>
+            <a href="index.jsp"><span class="my-logo">My<span>Academy</span></span></a>
             <span>Don’t have an account? <a href="signup.jsp">Sign up!</a></span>
         </nav>
 
@@ -50,7 +50,8 @@ session.removeAttribute("warning_message");
                 <% if (messages != null && !messages.isEmpty()) { %>
                 <div class="message-warning blue-color">
                     <% for (String message : messages) { %>
-                    <p><b>*</b> <%= message %> </p>
+                    <p><b>*</b> <%= message %>
+                    </p>
                     <% } %>
                 </div>
                 <% } %>
@@ -59,7 +60,8 @@ session.removeAttribute("warning_message");
                     <input type="text" placeholder="Email ou username" id="email" name="email">
                     <div class="password-div">
                         <input id="password" name="password" placeholder="Password" type="password">
-                        <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye blackOpacity"></i></span>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()"><i
+                                class="fas fa-eye blackOpacity"></i></span>
                     </div>
 
                     <input type="submit" value="Login">

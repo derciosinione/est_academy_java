@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-    <?php include_once 'SideBarMenu.php' ?>
+    <jsp:include page="SideBarMenu.jsp" />
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -32,20 +35,20 @@
                     <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
                 </div>
 
-                <!-- Circular avatar -->
-                <?php include_once 'circularAvatar.php' ?>
+                <%-- Circular avatar --%>
+                <jsp:include page="circularAvatar.jsp" />
 
             </div>
         </div>
 
         <div style="width: 91%; margin: 0 auto;">
-            <?php include_once 'displayMessageIfExists.php'; ?>
+            <jsp:include page="displayMessageIfExists.jsp" />
         </div>
 
         <!-- MAIN BODY -->
         <div class="main-body">
 
-            <?php include_once 'settings-aside.php' ?>
+            <jsp:include page="settings-aside.jsp" />
 
             <section>
 
@@ -54,7 +57,7 @@
 
                 <div class="setting-container">
 
-                    <form action="HandlerUpdateUserPassword.php" method="post">
+                    <form action="HandlerUpdateUserPassword.jsp" method="post">
                         <div class="input-box-row">
                             <label>
                                 Senha atual

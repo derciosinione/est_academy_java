@@ -1,6 +1,5 @@
 <%@ page import="java.util.*" %>
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
     </div>
     <div class="content">
         <nav>
-            <a href="index.php"><span class="my-logo">My<span>Academy</span></span></a>
+            <a href="index.jsp"><span class="my-logo">My<span>Academy</span></span></a>
             <span>have an account? <a href="login.jsp">Sign in!</a></span>
         </nav>
 
