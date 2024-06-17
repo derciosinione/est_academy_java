@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-     <jsp:include page="SideBarMenu.jsp" />
+    <jsp:include page="SideBarMenu.jsp"/>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -34,7 +34,7 @@
                 </div>
 
                 <%-- Circular avatar --%>
-                <jsp:include page="circularAvatar.jsp" />
+                <jsp:include page="circularAvatar.jsp"/>
 
             </div>
         </div>
@@ -45,15 +45,15 @@
             <div class="main-description">
                 <h2>Inscrições</h2>
                 <div>
-                  
+
                 </div>
             </div>
 
-           
-             <jsp:include page="displayMessageIfExists.jsp" />
+
+            <jsp:include page="displayMessageIfExists.jsp"/>
 
             <div class="table-container">
-            	  <table>
+                <table>
                     <thead>
                     <tr>
                         <th>Student details</th>

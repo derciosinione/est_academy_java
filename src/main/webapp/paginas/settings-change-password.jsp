@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-<!--    <link href="components.css" rel="stylesheet">-->
+    <!--    <link href="components.css" rel="stylesheet">-->
     <link href="settings.css" rel="stylesheet">
     <link href="components.css" rel="stylesheet">
     <title>Settings</title>
@@ -17,7 +17,7 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-    <jsp:include page="SideBarMenu.jsp" />
+    <jsp:include page="SideBarMenu.jsp"/>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -36,19 +36,19 @@
                 </div>
 
                 <%-- Circular avatar --%>
-                <jsp:include page="circularAvatar.jsp" />
+                <jsp:include page="circularAvatar.jsp"/>
 
             </div>
         </div>
 
         <div style="width: 91%; margin: 0 auto;">
-            <jsp:include page="displayMessageIfExists.jsp" />
+            <jsp:include page="displayMessageIfExists.jsp"/>
         </div>
 
         <!-- MAIN BODY -->
         <div class="main-body">
 
-            <jsp:include page="settings-aside.jsp" />
+            <jsp:include page="settings-aside.jsp"/>
 
             <section>
 

@@ -1,5 +1,3 @@
-
-
 function toggleModalAddCourse() {
     if (modalAddCourseIsVisible()) hideModalAddCourse();
     else showModalAddCourse();

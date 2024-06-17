@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-    
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,56 +109,56 @@
 
     <section class="about-card">
         <div class="home-content-description">
-                <h5 class="text-red">Porquê MyAcademy?</h5>
-                <h2>Porquê escolher estudar connosco?</h2>
-                <h5>Transforme Seu Futuro com Educação de Qualidade</h5>
-                <p>
-                    Na MyAcademy, acreditamos que a educação é a chave para desbloquear o seu potencial e
-                    transformar seu futuro. Nosso compromisso é fornecer cursos online de alta qualidade, acessíveis
-                    e relevantes para as necessidades do mercado atual. Aqui estão algumas razões pelas quais você
-                    deve escolher aprender conosco:
-                </p>
+            <h5 class="text-red">Porquê MyAcademy?</h5>
+            <h2>Porquê escolher estudar connosco?</h2>
+            <h5>Transforme Seu Futuro com Educação de Qualidade</h5>
+            <p>
+                Na MyAcademy, acreditamos que a educação é a chave para desbloquear o seu potencial e
+                transformar seu futuro. Nosso compromisso é fornecer cursos online de alta qualidade, acessíveis
+                e relevantes para as necessidades do mercado atual. Aqui estão algumas razões pelas quais você
+                deve escolher aprender conosco:
+            </p>
 
-                <ul class="ul-skills">
-                    <li>
-                        <span class="bg-blue"><i class="fa fa-graduation-cap text-white"></i></span>
-                        <div>
-                            <h5>Cursos Desenvolvidos por Especialistas</h5>
-                            <p>Nossos cursos são criados e ministrados por profissionais experientes e reconhecidos
-                                em suas áreas. Isso garante que você receba uma educação atualizada e prática,
-                                baseada nas últimas tendências e melhores práticas do mercado.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="bg-yellow"><i class="fa fa-certificate"></i></span>
-                        <div>
-                            <h5>Certificação Reconhecida</h5>
-                            <p>Ao concluir nossos cursos, você receberá certificados que são reconhecidos e
-                                valorizados no mercado de trabalho. Esses certificados podem ajudar a impulsionar
-                                sua carreira e abrir novas oportunidades profissionais.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="bg-green"><i class="fa fa-book-reader text-white"></i></span>
-                        <div>
-                            <h5>Flexibilidade de Aprendizagem</h5>
-                            <p>Entendemos que cada estudante tem uma rotina diferente. Por isso, nossos cursos são
-                                projetados para serem acessíveis a qualquer hora e em qualquer lugar. Aprenda no seu
-                                próprio ritmo, de acordo com sua agenda, sem comprometer a qualidade da
-                                educação.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="bg-red"><i class="fa fa-certificate"></i></span>
-                        <div>
-                            <h5>Atualização Constante</h5>
-                            <p>Estamos sempre atualizando e expandindo nosso catálogo de cursos para garantir que
-                                você tenha acesso ao conteúdo mais relevante e inovador. Nunca pare de aprender e
-                                evoluir com nossa vasta seleção de cursos.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <ul class="ul-skills">
+                <li>
+                    <span class="bg-blue"><i class="fa fa-graduation-cap text-white"></i></span>
+                    <div>
+                        <h5>Cursos Desenvolvidos por Especialistas</h5>
+                        <p>Nossos cursos são criados e ministrados por profissionais experientes e reconhecidos
+                            em suas áreas. Isso garante que você receba uma educação atualizada e prática,
+                            baseada nas últimas tendências e melhores práticas do mercado.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="bg-yellow"><i class="fa fa-certificate"></i></span>
+                    <div>
+                        <h5>Certificação Reconhecida</h5>
+                        <p>Ao concluir nossos cursos, você receberá certificados que são reconhecidos e
+                            valorizados no mercado de trabalho. Esses certificados podem ajudar a impulsionar
+                            sua carreira e abrir novas oportunidades profissionais.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="bg-green"><i class="fa fa-book-reader text-white"></i></span>
+                    <div>
+                        <h5>Flexibilidade de Aprendizagem</h5>
+                        <p>Entendemos que cada estudante tem uma rotina diferente. Por isso, nossos cursos são
+                            projetados para serem acessíveis a qualquer hora e em qualquer lugar. Aprenda no seu
+                            próprio ritmo, de acordo com sua agenda, sem comprometer a qualidade da
+                            educação.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="bg-red"><i class="fa fa-certificate"></i></span>
+                    <div>
+                        <h5>Atualização Constante</h5>
+                        <p>Estamos sempre atualizando e expandindo nosso catálogo de cursos para garantir que
+                            você tenha acesso ao conteúdo mais relevante e inovador. Nunca pare de aprender e
+                            evoluir com nossa vasta seleção de cursos.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         <div class="about-img">
             <img src="Img/feature.jpg" alt="">

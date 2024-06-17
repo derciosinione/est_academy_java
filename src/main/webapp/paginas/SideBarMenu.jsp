@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
@@ -7,6 +7,20 @@
 <%@ include file="LoggedUser.jsp" %>
 
 <%
+
+    if (!isLogged) {
+
+        List<String> messages = new ArrayList<>();
+        messages.add("You need to log in to access the administrative panel");
+
+        session.setAttribute("warning_message", messages);
+
+        response.sendRedirect("login.jsp");
+
+        return;
+    }
+
+
     String currentFileName = request.getServletPath().toLowerCase().replace(".jsp", "").replace("/paginas/", "");
 
     ArrayList<String> activeSettingsPages = new ArrayList<>(Arrays.asList("settings", "account-profile", "settings-change-password", "settings-about"));

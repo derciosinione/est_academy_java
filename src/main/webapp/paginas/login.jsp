@@ -3,20 +3,16 @@
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
-<%--<%@ include file="RedirectNonLoggedUser.jsp" %>--%>
-
-<%--<%--%>
-<%--    List<String> messages = new ArrayList<>();--%>
-
-<%--	Object warningMessageObj = session.getAttribute("warning_message");--%>
-<%--    if (warningMessageObj != null && warningMessageObj instanceof List) {--%>
-<%--        messages = (List<String>) warningMessageObj;--%>
-<%--        session.removeAttribute("warning_message");--%>
-<%--    }--%>
-<%--%>--%>
-
-
 <%
+
+    Boolean isLogged = (Boolean) session.getAttribute("isLogged");
+    isLogged = isLogged != null;
+
+    if (isLogged) {
+        out.println("You are logged in");
+        response.sendRedirect("dashboard.jsp");
+        return;
+    }
 
     List<String> messages = (List<String>) session.getAttribute("warning_message");
     session.removeAttribute("warning_message");

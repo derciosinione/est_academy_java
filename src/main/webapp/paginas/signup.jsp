@@ -30,14 +30,14 @@
                 <h1 class="fz27">Get Started With My Academy </h1>
                 <p class="fz18 blackOpacity">Getting started is easy</p>
 
-<%--                <!-- Messages -->--%>
-<%--                <% if (messages != null && !messages.isEmpty()) { %>--%>
-<%--                <div class="message-warning blue-color">--%>
-<%--                    <% for (String message : messages) { %>--%>
-<%--                    <p><b>*</b> <%= message %> </p>--%>
-<%--                    <% } %>--%>
-<%--                </div>--%>
-<%--                <% } %>--%>
+                <%--                <!-- Messages -->--%>
+                <%--                <% if (messages != null && !messages.isEmpty()) { %>--%>
+                <%--                <div class="message-warning blue-color">--%>
+                <%--                    <% for (String message : messages) { %>--%>
+                <%--                    <p><b>*</b> <%= message %> </p>--%>
+                <%--                    <% } %>--%>
+                <%--                </div>--%>
+                <%--                <% } %>--%>
 
                 <div class="inputs">
                     <input id="name" name="name" placeholder="Nome Completo" type="text" value="">
@@ -48,14 +48,14 @@
                     <div class="password-div">
                         <input id="password" name="password" placeholder="Password" type="password" value="">
                         <span class="toggle-password" onclick="togglePasswordVisibility()"><i
-                                    class="fas fa-eye blackOpacity"></i></span>
+                                class="fas fa-eye blackOpacity"></i></span>
                     </div>
 
                     <div class="password-div">
                         <input id="confirm-password" name="confirmPassword" placeholder="Confirmar Password"
                                type="password">
                         <span class="toggle-password" onclick="toggleConfirmPasswordVisibility()"><i
-                                    class="fas fa-eye blackOpacity"></i></span>
+                                class="fas fa-eye blackOpacity"></i></span>
                     </div>
 
                     <input type="submit" value="Criar Conta">

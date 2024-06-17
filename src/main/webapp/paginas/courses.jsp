@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-       <%@ include file="SideBarMenu.jsp" %>
+    <%@ include file="SideBarMenu.jsp" %>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -35,8 +35,8 @@
                     <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
                 </div>
 
-               <%-- Circular avatar --%>
-                <jsp:include page="circularAvatar.jsp" />
+                <%-- Circular avatar --%>
+                <jsp:include page="circularAvatar.jsp"/>
 
             </div>
         </div>
@@ -44,24 +44,24 @@
         <!-- MAIN BODY -->
         <div class="main-body">
 
-             <!-- MAIN DESCRIPTION -->
+            <!-- MAIN DESCRIPTION -->
             <div class="main-description">
                 <h2>Cursos</h2>
 
                 <!-- OPTIONS -->
                 <div>
-                   
+
                 </div>
             </div>
 
             <!-- DISPLAY SERVER MESSAGES -->
-           <jsp:include page="displayMessageIfExists.jsp" />
+            <jsp:include page="displayMessageIfExists.jsp"/>
 
 
-      <!-- COURSES ITEMS -->
+            <!-- COURSES ITEMS -->
             <div class="cards-container">
 
-           
+
                 <div class="course-card transition-scale">
                     <a href="#l">
                         <div class="course-avatar">

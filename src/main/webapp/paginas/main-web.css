@@ -122,7 +122,7 @@ nav {
 
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 0.5rem;
 }
@@ -148,15 +148,15 @@ main section {
     object-fit: cover;
 }
 
-.card-body  > h1 {
-   font-weight: 700 !important;
-   margin-bottom: 20px;
+.card-body > h1 {
+    font-weight: 700 !important;
+    margin-bottom: 20px;
 }
 
 .card-body > p {
-   color: var(--text-color);
-   text-align: justify;
-   padding-bottom: 10px;
+    color: var(--text-color);
+    text-align: justify;
+    padding-bottom: 10px;
 }
 
 .about-metric {
@@ -326,11 +326,11 @@ footer .copy-right {
     }
 
     .ul-skills li p {
-       text-align: start;
+        text-align: start;
     }
 
     .about-card .about-img {
-       display: none;
+        display: none;
         min-width: auto;
         max-height: 500px;
     }

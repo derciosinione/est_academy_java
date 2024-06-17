@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="components.css" rel="stylesheet">
     <link href="user.css" rel="stylesheet">
-    <title>Admin > Add User</title>
+    <title>Admin > User Detail</title>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
             </div>
 
             <div class="main-header-right">
-                <!-- Circular avatar -->
+                <%-- Circular avatar --%>
                 <jsp:include page="circularAvatar.jsp"/>
             </div>
         </div>
@@ -37,14 +38,20 @@
         <div class="main-body">
 
             <div class="main-description">
-                <h2>Adicionar Usuário</h2>
+                <h2>Detalhes de Usuário</h2>
+
+                <div>
+                    <a href="HandlerDeleteUser.php?id=<?php echo $user->id ?>">
+                        <button onclick="" class="red-color">ELIMINAR</button>
+                    </a>
+                </div>
             </div>
 
             <!-- DISPLAY SERVER MESSAGES -->
             <jsp:include page="displayMessageIfExists.jsp"/>
 
             <div class="user-registration-form">
-                <form action="HandlerCreateUser.php" method="post">
+                <form action="HandlerEditUser.jsp?id=<%= 1%>php echo ?>" method="post">
                     <div class="input-box">
                         <label>
                             Nome

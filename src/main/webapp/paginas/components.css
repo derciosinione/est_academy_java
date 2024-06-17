@@ -191,10 +191,10 @@ a {
 
 input,
 .custom-select,
-/*input[type="text"],*/
-/*input[type="password"],*/
-/*input[type="email"],*/
-/*input[type="date"], */
+    /*input[type="text"],*/
+    /*input[type="password"],*/
+    /*input[type="email"],*/
+    /*input[type="date"], */
 textarea {
     outline: none;
     width: 300px;
@@ -214,10 +214,10 @@ textarea {
 /*}*/
 
 input::placeholder
-/*input[type="text"]::placeholder,*/
-/*input[type="password"]::placeholder,*/
-/*input[type="email"]::placeholder,*/
-/*input[type="date"]::placeholder */
+    /*input[type="text"]::placeholder,*/
+    /*input[type="password"]::placeholder,*/
+    /*input[type="email"]::placeholder,*/
+    /*input[type="date"]::placeholder */
 {
     color: #aaa;
 }
@@ -227,9 +227,9 @@ input[type="date"] {
 }
 
 input:hover
-/*,input[type="text"]:hover,*/
-/*input[type="email"]:hover,*/
-/*input[type="date"]:hover*/
+    /*,input[type="text"]:hover,*/
+    /*input[type="email"]:hover,*/
+    /*input[type="date"]:hover*/
 {
     /*cursor: pointer;*/
     border-color: #999;
@@ -477,6 +477,7 @@ table {
 
     thead tr {
         height: 36px;
+
         th {
             color: #9FA2B4;
             text-align: left;
@@ -541,7 +542,7 @@ td span[data-status="3"] {
 }
 
 .large-btn {
-    width: 250px!important;
-    height: 42px!important;
+    width: 250px !important;
+    height: 42px !important;
 }
 

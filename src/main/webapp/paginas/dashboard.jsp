@@ -32,7 +32,7 @@
                 </div>
 
                 <%-- Circular avatar --%>
-                <jsp:include page="circularAvatar.jsp" />
+                <jsp:include page="circularAvatar.jsp"/>
 
             </div>
         </div>
