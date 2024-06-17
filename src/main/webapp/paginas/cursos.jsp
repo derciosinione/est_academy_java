@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,13 +30,13 @@
                     <a class="nav-link" href="index.jsp">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Sobre</a>
+                    <a class="nav-link" href="sobre.jsp">Sobre</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="cursos.html">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contactos.html">Contactos</a>
+                    <a class="nav-link" href="contactos.jsp">Contactos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto ">
@@ -206,9 +209,9 @@
             <h5 class="text-uppercase">Links Uteis</h5>
             <ul>
                 <li><a href="autores.html"><i class="fas fa-chevron-right"></i> Autores</a></li>
-                <li><a href="sobre.html"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                <li><a href="sobre.jsp"><i class="fas fa-chevron-right"></i> Sobre</a></li>
                 <li><a href="cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
-                <li><a href="contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                <li><a href="contactos.jsp"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                 <li><a href="signup.jsp"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
