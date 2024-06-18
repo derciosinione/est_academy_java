@@ -1,5 +1,10 @@
+<%@page import="java.text.SimpleDateFormat" %>
+<%@page import="java.util.Objects" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ include file="../basedados/basedados.h" %>
+<%@ include file="javaMd5.jsp" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +20,9 @@
 
 <div class="board">
     <!-- SIDE BAR -->
-    <jsp:include page="SideBarMenu.jsp"/>
+
+
+    <%@ include file="SideBarMenu.jsp" %>
 
     <!-- MAIN ELEMENT  -->
     <main>
@@ -28,10 +35,13 @@
             </div>
 
             <div class="main-header-right">
-                <div class="search-container">
-                    <input placeholder="Search..." type="text">
-                    <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
-                </div>
+                <% String search = Objects.requireNonNullElse(request.getParameter("search"), ""); %>
+                <form action="registrations.jsp" method="get">
+                    <div class="search-container">
+                        <input placeholder="Search..." type="text" name="search" value="<%= search %>">
+                        <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
 
                 <%-- Circular avatar --%>
                 <jsp:include page="circularAvatar.jsp"/>
@@ -64,28 +74,87 @@
                     </tr>
                     </thead>
                     <tbody>
+
+                    <%
+
+                        Statement stmt = null;
+                        ResultSet rs = null;
+
+                        try {
+
+                            stmt = conn.createStatement();
+
+                            String sqlQuery =
+                                    "SELECT SE.Id, " +
+                                            "U.Name AS StudentName, " +
+                                            "U.Email, " +
+                                            "U.AvatarUrl, " +
+                                            "C.Name AS Course, " +
+                                            "ES.Name AS Status, " +
+                                            "SE.EnrollmentsStatusId, " +
+                                            "SE.CreatedAt " +
+                                            "FROM StudentEnrollments SE " +
+                                            "JOIN Users U ON SE.StudentId = U.Id " +
+                                            "JOIN Courses C ON SE.CourseId = C.Id " +
+                                            "JOIN EnrollmentsStatus ES ON SE.EnrollmentsStatusId = ES.Id " +
+                                            "WHERE 1=1 " +
+                                            "AND SE.IsDeleted = false ";
+
+                            switch (loggedUser.profileId) {
+                                case Constants.STUDENT:
+                                    sqlQuery += " AND SE.StudentId=" + loggedUser.id;
+                                    break;
+                                case Constants.INSTRUCTOR:
+                                    sqlQuery += " AND C.CreatorId=" + loggedUser.id;
+                                    break;
+                            }
+
+
+                            if (!search.isEmpty()) {
+                                sqlQuery += " AND (U.Name LIKE '%" + search
+                                        + "%' OR C.Name LIKE '%" + search
+                                        + "%' OR ES.Name LIKE '%" + search
+                                        + "%' OR U.Email LIKE '%" + search + "%') ";
+                            }
+
+                            sqlQuery += getOrderBy("SE") + getQueryLimit(10);
+
+                            rs = stmt.executeQuery(sqlQuery);
+
+                            while (rs.next()) {
+
+                    %>
+
                     <tr>
                         <td class="td-line">
                             <div class="avatar">
-                                <img src="../Img/studentavatar.jpg">
+                                <img src="Img/<%= rs.getString("AvatarUrl") %>">
                             </div>
                             <div>
-                                Dércio Sinione Derone
-                                <p class="blackOpacity mt5 smallText">derciosinione@email.com</p>
+                                <%= rs.getString("StudentName") %>
+                                <p class="blackOpacity mt5 smallText"><%= rs.getString("Email") %>
+                                </p>
                             </div>
                         </td>
-                        <td>Informatica Movel</td>
-                        <td>May 01, 2024</td>
-                        <td><span data-status="pendente">Pendente</span></td>
+                        <td><%= rs.getString("Course") %>
+                        </td>
+                        <td><%= rs.getString("CreatedAt") %>
+                        </td>
+                        <td><span
+                                data-status="<%= rs.getString("EnrollmentsStatusId") %>"><%= rs.getString("Status") %></span>
+                        </td>
                         <td>
                             <div class="table-actions">
-                                <a href="#">
+                                <% if (loggedUser.profileId != Constants.STUDENT) { %>
+                                <a href="HandlerRegistrationApprove.jsp?id=<%= rs.getString("Id") %>">
                                     <div class="tooltip">
                                         <i class="fas fa-check-double green-text"></i>
                                         <span class="tooltipText">Aceitar inscrição do aluno</span>
                                     </div>
                                 </a>
-                                <a href="#">
+                                <% } %>
+
+                                <a href="HandlerRegistrationRefuse.jsp?id=<%= rs.getString("Id") %>">
                                     <div class="tooltip">
                                         <i class="fas fa-times red-text" style="font-size: 22px"></i>
                                         <span class="tooltipText">Recusar inscrição do aluno</span>
@@ -101,116 +170,16 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td class="td-line">
-                            <div class="avatar">
-                                <img src="https://media.istockphoto.com/id/1357723194/pt/foto/studio-portrait-of-a-serious-man-of-north-african-ethnicity.jpg?s=1024x1024&w=is&k=20&c=QLmjWPeZm6yZMSQZoo4bja-WSheJcleufT82h9GfjGY=">
-                            </div>
-                            <div>
-                                Dércio Sinione Derone
-                                <p class="blackOpacity mt5 smallText">derciosinione@email.com</p>
-                            </div>
-                        </td>
-                        <td>Informatica Movel</td>
-                        <td>May 11, 2024</td>
-                        <td><span data-status="aprovado">Aprovado</span></td>
-                        <td>
-                            <div class="table-actions">
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-check-double green-text"></i>
-                                        <span class="tooltipText">Aceitar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-times red-text" style="font-size: 22px"></i>
-                                        <span class="tooltipText">Recusar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fa fa-info-circle"></i>
-                                        <span class="tooltipText">Informações da inscrição.</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="td-line">
-                            <div class="avatar">
-                                <img src="https://media.istockphoto.com/id/1424925129/pt/foto/portrait-of-a-young-man-on-a-pink-background.jpg?s=1024x1024&w=is&k=20&c=Qhxp8a8u5JNpiOTzb3EP3B2n3z67f7vVWDDlh08Zdes=">
-                            </div>
-                            <div>
-                                Dércio Sinione Derone
-                                <p class="blackOpacity mt5 smallText">derciosinione@email.com</p>
-                            </div>
-                        </td>
-                        <td>Informatica Movel</td>
-                        <td>May 11, 2024</td>
-                        <td><span data-status="reprovado">Reprovado</span></td>
-                        <td>
-                            <div class="table-actions">
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-check-double green-text"></i>
-                                        <span class="tooltipText">Aceitar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-times red-text" style="font-size: 22px"></i>
-                                        <span class="tooltipText">Recusar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fa fa-info-circle"></i>
-                                        <span class="tooltipText">Informações da inscrição.</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="td-line">
-                            <div class="avatar">
-                                <img src="https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                            </div>
-                            <div>
-                                Ana Luisa Jose
-                                <p class="blackOpacity mt5 smallText">analuisa@email.com</p>
-                            </div>
-                        </td>
-                        <td>Introdução a Html5 e css</td>
-                        <td>May 12, 2024</td>
-                        <td><span data-status="pendente">Pendente</span></td>
-                        <td>
-                            <div class="table-actions">
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-check-double green-text"></i>
-                                        <span class="tooltipText">Aceitar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fas fa-times red-text" style="font-size: 22px"></i>
-                                        <span class="tooltipText">Recusar inscrição do aluno</span>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="tooltip">
-                                        <i class="fa fa-info-circle"></i>
-                                        <span class="tooltipText">Informações da inscrição.</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    <%
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (rs != null) rs.close();
+                            if (stmt != null) stmt.close();
+                            if (conn != null) conn.close();
+                        }
+                    %>
 
                     </tbody>
                 </table>

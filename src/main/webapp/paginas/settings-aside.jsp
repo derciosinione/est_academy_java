@@ -32,7 +32,7 @@
 
 
             <%
-                if (loggedUser.profileId != Constants.ADMIN) {
+                if (loggedUser.profileId == Constants.ADMIN) {
             %>
             <li><a href="#">Usários</a></li>
             <li><a href="#">Categorias</a></li>
