@@ -1,5 +1,10 @@
+<%@page import="java.util.Objects" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+
+<%@ include file="../basedados/basedados.h" %>
+<%@ include file="javaMd5.jsp" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +31,13 @@
             </div>
 
             <div class="main-header-right">
-                <div class="search-container">
-                    <input placeholder="Search..." type="text">
-                    <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
-                </div>
+                <% String search = Objects.requireNonNullElse(request.getParameter("search"), ""); %>
+                <form action="students.jsp" method="get">
+                    <div class="search-container">
+                        <input placeholder="Search..." type="text" name="search" value="<%= search %>">
+                        <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
 
                 <%-- Circular avatar --%>
                 <jsp:include page="circularAvatar.jsp"/>
@@ -52,33 +60,94 @@
         <jsp:include page="displayMessageIfExists.jsp"/>
 
         <div class="cards-container">
+            <%
+
+
+                Statement stmt = null;
+                ResultSet rs = null;
+
+                try {
+
+                    stmt = conn.createStatement();
+
+                    String sqlQuery = "SELECT "
+                            + "u.Id, "
+                            + "u.Name, "
+                            + "u.Email, "
+                            + "u.Username, "
+                            + "u.NIF, "
+                            + "u.ProfileId, "
+                            + "p.Name AS 'Profile', "
+                            + "u.PhoneNumber, "
+                            + "u.BirthDay, "
+                            + "u.AvatarUrl, "
+                            + "u.IsApproved, "
+                            + "u.CreatedAt "
+                            + "FROM Users u "
+                            + "JOIN Profiles p ON u.ProfileId = p.Id "
+                            + "WHERE 1=1 "
+                            + "AND NOT u.IsDeleted "
+                            + "AND u.ProfileId IN (1) "
+                            + "AND u.IsActive ";
+
+
+                    if (!search.isEmpty()) {
+                        sqlQuery += " AND (u.Name LIKE '%" + search + "%' OR u.Email LIKE '%" + search + "%')";
+                    }
+
+                    sqlQuery += getOrderBy("u") + getQueryLimit(10);
+
+                    rs = stmt.executeQuery(sqlQuery);
+
+                    while (rs.next()) {
+                        Boolean isApproved = rs.getBoolean("IsApproved");
+                        String approvedStatus = isApproved ? "Aprovado" : "Aguardando aprovação";
+                        String approvedStatusColor = isApproved ? "green-color" : "red-color";
+            %>
 
             <div class="user-card">
-                <a href="students-detail.html">
+                <a href="user-detail.jsp?id=<%= rs.getInt("Id") %>">
                     <div class="background-image">
                         <img alt="" src="Img/studentbg1.png">
                     </div>
 
                     <div class="user-avatar">
                         <img alt="" class="img-cover"
-                             src="https://plus.unsplash.com/premium_photo-1664868839907-2309d69b1361?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                             src="Img/<%= rs.getString("AvatarUrl") %>">
                     </div>
 
                     <div class="content-title">
-                        <p class="bold">Dercio Sinione Derone</p>
-                        <p class="blackOpacity smallText"><i class="fas fa-book-reader"></i> Estudante</p>
+                        <p class="bold"><%= rs.getString("Name") %>
+                        </p>
+                        <p class="blackOpacity smallText"><i
+                                class="fas fa-book-reader"></i> <%= rs.getString("Profile") %>
+                        </p>
                     </div>
 
                     <div class="content-description">
-                        <p class="overflow-text"><i class="far fa-envelope"></i> derciosinione@gmail.com</p>
-                        <p><i class="fas fa-phone-alt"></i> +351 912 856 254</p>
-                        <span class="span-label green-color">Aprovado</span>
+                        <p class="overflow-text"><i class="far fa-envelope"></i> <%= rs.getString("Email") %>
+                        </p>
+                        <p><i class="fas fa-phone-alt"></i> <%= rs.getString("PhoneNumber") %>
+                        </p>
+                        <span class="span-label <%= approvedStatusColor %>"><%= approvedStatus %></span>
                     </div>
                 </a>
             </div>
 
+            <%
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (rs != null) rs.close();
+                    if (stmt != null) stmt.close();
+                    if (conn != null) conn.close();
+                }
+            %>
         </div>
 
+        <br>
+        <br>
 </div>
 
 </main>

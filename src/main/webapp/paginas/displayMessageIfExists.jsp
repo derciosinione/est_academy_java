@@ -16,7 +16,7 @@
     } else if (session.getAttribute("warning_message") != null) {
         messages = (List<String>) session.getAttribute("warning_message");
         session.removeAttribute("warning_message");
-    } else if (session.getAttribute("warning_message") != null) {
+    } else if (session.getAttribute("error_message") != null) {
         messages = (List<String>) session.getAttribute("error_message");
         color = "red-color";
         session.removeAttribute("error_message");
@@ -31,7 +31,8 @@
     <section>
         <%
             for (String message : messages) { %>
-        <p><b>*</b> $message </p>
+        <p><b>*</b> <%= message %>
+        </p>
         <%}%>
     </section>
 </div>

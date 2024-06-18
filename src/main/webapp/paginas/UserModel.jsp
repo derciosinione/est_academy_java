@@ -1,5 +1,6 @@
+<%@page import="java.util.Date" %>
 <%@page import="java.io.Serializable" %>
-<%@page import="java.sql.Date" %>
+
 <%
     class UserModel implements Serializable {
 
@@ -24,6 +25,10 @@
 
         // Constructors
         public UserModel() {
+        }
+
+        public String getNif() {
+            return nif == null ? "" : nif;
         }
 
     }
