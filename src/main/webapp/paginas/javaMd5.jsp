@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.regex.Matcher" %>
 <%@page import="java.util.regex.Pattern" %>
 <%@page import="java.security.MessageDigest" %>
@@ -23,6 +25,22 @@
         byte[] hash = md.digest(input.getBytes());
         return toHexString(hash);
     }
+    
+    public String convertToMD5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : messageDigest) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static boolean isValidDateFormat(String dateString) {
         // Define the regex pattern for YYYY-MM-DD or YYYY/MM/DD
@@ -41,6 +59,28 @@
 
     public static String getQueryLimit(int limit) {
         return " LIMIT " + limit;
+    }
+    
+    public List<String> userValidator(String name, String email, String phoneNumber, String nif) {
+        List<String> errors = new ArrayList<>();
+
+        if (name == null || name.isEmpty()) {
+            errors.add("O nome é um campo obrigatorio");
+        }
+
+        if (email == null || email.isEmpty()) {
+            errors.add("O email é um campo obrigatorio");
+        }
+
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            errors.add("O telefone é um campo obrigatorio");
+        }
+
+        if (nif == null || nif.isEmpty()) {
+            errors.add("O NIF é um campo obrigatorio");
+        }
+
+        return errors;
     }
 
 %>
