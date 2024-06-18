@@ -1,5 +1,5 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List" %>
+<%@page import="java.util.ArrayList" %>
 <%@page import="java.util.regex.Matcher" %>
 <%@page import="java.util.regex.Pattern" %>
 <%@page import="java.security.MessageDigest" %>
@@ -25,7 +25,7 @@
         byte[] hash = md.digest(input.getBytes());
         return toHexString(hash);
     }
-    
+
     public String convertToMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -60,7 +60,7 @@
     public static String getQueryLimit(int limit) {
         return " LIMIT " + limit;
     }
-    
+
     public List<String> userValidator(String name, String email, String phoneNumber, String nif) {
         List<String> errors = new ArrayList<>();
 

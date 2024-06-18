@@ -28,7 +28,7 @@
         String email = loggedUser.email;
         String nif = loggedUser.getNif();
         String phoneNumber = loggedUser.phoneNumber;
-        String birthday = loggedUser.birthDay.toString();
+        String birthday = loggedUser.birthDay;
 
         HashMap<String, String> formData = (HashMap<String, String>) session.getAttribute("form_data");
 

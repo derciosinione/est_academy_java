@@ -1,29 +1,29 @@
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.Objects"%>
+<%@page import="java.util.HashMap" %>
+<%@page import="java.util.Objects" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-         
+
 <%@ include file="../basedados/basedados.h" %>
 <%@ include file="javaMd5.jsp" %>
-         
-<% 
-	HashMap<String, String> formData = (HashMap<String, String>) session.getAttribute("form_data");
-	
-	String name = "";
-	int profileId = 0;
-	String email = "";
-	String nif = "";
-	String phoneNumber = "";
-	String birthday = "";
 
-	if (formData != null) {
-	    name = formData.get("name");
-	    profileId = Integer.parseInt(formData.get("profileId"));
-	    email = formData.get("email");
-	    nif = formData.get("nif");
-	    phoneNumber = formData.get("phoneNumber");
-	    birthday = formData.get("birthday");
-	    session.removeAttribute("form_data");
-	}
+<%
+    HashMap<String, String> formData = (HashMap<String, String>) session.getAttribute("form_data");
+
+    String name = "";
+    int profileId = 0;
+    String email = "";
+    String nif = "";
+    String phoneNumber = "";
+    String birthday = "";
+
+    if (formData != null) {
+        name = formData.get("name");
+        profileId = Integer.parseInt(formData.get("profileId"));
+        email = formData.get("email");
+        nif = formData.get("nif");
+        phoneNumber = formData.get("phoneNumber");
+        birthday = formData.get("birthday");
+        session.removeAttribute("form_data");
+    }
 %>
 
 <!DOCTYPE html>
@@ -88,7 +88,8 @@
 
                         <label>
                             Contacto
-                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber" value="<%= phoneNumber %>">
+                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber"
+                                   value="<%= phoneNumber %>">
                         </label>
 
                         <label for="profileId">

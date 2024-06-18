@@ -1,7 +1,7 @@
-<%@page import="java.util.Objects"%>
+<%@page import="java.util.Objects" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-         
+
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.util.List" %>
 <%@ page import="java.sql.Statement" %>
@@ -12,39 +12,39 @@
 <%@ include file="../basedados/basedados.h" %>
 
 
-<% 
-	int userId = Integer.parseInt(Objects.requireNonNullElse(request.getParameter("id"), "0")); 
+<%
+    int userId = Integer.parseInt(Objects.requireNonNullElse(request.getParameter("id"), "0"));
 
-	if(userId==0){
-		session.setAttribute("404_message", "Informe o identificado do usuario");
-		response.sendRedirect("404.jsp");
-	}
-	
+    if (userId == 0) {
+        session.setAttribute("404_message", "Informe o identificado do usuario");
+        response.sendRedirect("404.jsp");
+    }
 
-	if(loggedUser.profileId != Constants.ADMIN){
-		session.setAttribute("error_message", null);
-		List<String> messages = new ArrayList<>();
-		messages.add("Esta funcionalidade só é permitido para Administradores");
-		session.setAttribute("error_message", messages);
-		response.sendRedirect("users.jsp");
-	}
-	
-	String name = "";
-	int profileId = 0;
-	String email = "";
-	String nif = "";
-	String phoneNumber = "";
-	String birthday = "";
-	Boolean isApproved = false;
-	
-	Statement stmt = null;
+
+    if (loggedUser.profileId != Constants.ADMIN) {
+        session.setAttribute("error_message", null);
+        List<String> messages = new ArrayList<>();
+        messages.add("Esta funcionalidade só é permitido para Administradores");
+        session.setAttribute("error_message", messages);
+        response.sendRedirect("users.jsp");
+    }
+
+    String name = "";
+    int profileId = 0;
+    String email = "";
+    String nif = "";
+    String phoneNumber = "";
+    String birthday = "";
+    Boolean isApproved = false;
+
+    Statement stmt = null;
     ResultSet rs = null;
-    
-	try {
+
+    try {
         stmt = conn.createStatement();
 
-        String sqlQuery = 
-        		"SELECT " +
+        String sqlQuery =
+                "SELECT " +
                         "u.Id, " +
                         "u.Name, " +
                         "u.Email, " +
@@ -61,25 +61,25 @@
                         "JOIN Profiles p ON u.ProfileId = p.Id " +
                         "WHERE 1=1 " +
                         "AND !u.IsDeleted " +
-                        "AND u.IsActive " + 
-                        "AND u.Id="+ userId;
-       
+                        "AND u.IsActive " +
+                        "AND u.Id=" + userId;
+
         rs = stmt.executeQuery(sqlQuery);
 
         if (!rs.next()) {
-        	session.setAttribute("404_message", "Usuário não encontrado");
-    		response.sendRedirect("404.jsp");
+            session.setAttribute("404_message", "Usuário não encontrado");
+            response.sendRedirect("404.jsp");
             return;
         }
-        
+
         name = rs.getString("name");
-    	profileId = rs.getInt("profileId");
-    	email = rs.getString("email");
-    	nif = Objects.requireNonNullElse(rs.getString("Nif"), "");
-    	phoneNumber = rs.getString("phonenumber");
-    	birthday = rs.getDate("birthday").toString();
-    	isApproved = rs.getBoolean("IsApproved");
-    	
+        profileId = rs.getInt("profileId");
+        email = rs.getString("email");
+        nif = Objects.requireNonNullElse(rs.getString("Nif"), "");
+        phoneNumber = rs.getString("phonenumber");
+        birthday = rs.getDate("birthday").toString();
+        isApproved = rs.getBoolean("IsApproved");
+
     } catch (Exception ex) {
         ex.printStackTrace();
     } finally {
@@ -128,12 +128,12 @@
                 <h2>Detalhes de Usuário</h2>
 
                 <div>
-                	<% if(profileId==Constants.STUDENT && !isApproved){ %>
-	                    <a href="HandlerAdmitUser.jsp?id=<%= userId %>">
-	                        <button onclick="">ADMITIR</button>
-	                    </a>
-	                 <% } %>
-	                 
+                    <% if (profileId == Constants.STUDENT && !isApproved) { %>
+                    <a href="HandlerAdmitUser.jsp?id=<%= userId %>">
+                        <button onclick="">ADMITIR</button>
+                    </a>
+                    <% } %>
+
                     <a href="HandlerDeleteUser.jsp?id=<%= userId %>">
                         <button onclick="" class="red-color">ELIMINAR</button>
                     </a>
@@ -163,13 +163,14 @@
 
                         <label>
                             Contacto
-                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber" value="<%= phoneNumber %>">
+                            <input placeholder="+351 925 365 214" type="text" name="phoneNumber"
+                                   value="<%= phoneNumber %>">
                         </label>
 
                         <label for="profileId">
                             Perfil
                             <select id="profileId" class="custom-select" name="profileId">
-                               <option value="0" <%= profileId == 0 ? "selected" : "" %>>Escolha o perfil</option>
+                                <option value="0" <%= profileId == 0 ? "selected" : "" %>>Escolha o perfil</option>
                                 <option value="1" <%= profileId == 1 ? "selected" : "" %>>Estudante</option>
                                 <option value="2" <%= profileId == 2 ? "selected" : "" %>>Docente</option>
                                 <option value="3" <%= profileId == 3 ? "selected" : "" %>>Admin</option>
