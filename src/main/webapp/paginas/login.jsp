@@ -14,8 +14,8 @@
         return;
     }
 
-    List<String> messages = (List<String>) session.getAttribute("warning_message");
-    session.removeAttribute("warning_message");
+    List<String> messages = (List<String>) session.getAttribute("error_message");
+    session.removeAttribute("error_message");
 %>
 
 <!doctype html>

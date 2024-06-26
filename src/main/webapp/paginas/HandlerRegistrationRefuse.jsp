@@ -40,7 +40,7 @@
         PreparedStatement stmt = conn.prepareStatement(sql);
 
         stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, EnrollmentsStatus.refused);
+        stmt.setInt(1, EnrollmentsStatus.refused); 
         stmt.setInt(2, registrationId);
 
         int rowsUpdated = stmt.executeUpdate();

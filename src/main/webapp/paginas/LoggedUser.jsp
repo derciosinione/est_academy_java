@@ -17,5 +17,6 @@
         loggedUser.birthDay = (String) session.getAttribute("birthDay");
         loggedUser.phoneNumber = (String) session.getAttribute("phoneNumber");
         loggedUser.nif = (String) session.getAttribute("nif");
+        loggedUser.isApproved = (boolean) session.getAttribute("isApproved");
     }
 %>

@@ -4,6 +4,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ include file="../basedados/basedados.h" %>
 <%@ include file="javaMd5.jsp" %>
+<%@ include file="Constants.jsp" %>
 
 <%
 
@@ -31,7 +32,7 @@
 
         String sqlQuery = String.format(
                 "SELECT u.*, p.Name AS ProfileName FROM Users u JOIN profiles p ON u.ProfileId = p.Id " +
-                        "WHERE u.IsActive = 1 AND u.IsApproved = 1 AND (u.Email='%s' OR u.Username='%s') AND u.PasswordHash='%s'",
+                        "WHERE u.IsActive = 1 AND (u.Email='%s' OR u.Username='%s') AND u.PasswordHash='%s'",
                 userEmail, userEmail, hashedPassword
         );
 
@@ -43,7 +44,15 @@
             response.sendRedirect("login.jsp");
             return;
         }
-
+        
+        if(!rs.getBoolean("isApproved") && rs.getInt("profileId")==Constants.STUDENT){
+        	
+            if (session != null) session.invalidate(); 
+            
+        	response.sendRedirect("waitingApprove.jsp");
+        	return;
+        }
+        
         session.setAttribute("isLogged", true);
         session.setAttribute("userId", rs.getInt("id"));
         session.setAttribute("name", rs.getString("name"));
@@ -55,6 +64,7 @@
         session.setAttribute("phoneNumber", rs.getString("phonenumber"));
         session.setAttribute("birthDay", rs.getDate("birthday").toString());
         session.setAttribute("nif", rs.getString("Nif"));
+        session.setAttribute("isApproved", rs.getBoolean("IsApproved"));
 
         response.sendRedirect("dashboard.jsp");
         
