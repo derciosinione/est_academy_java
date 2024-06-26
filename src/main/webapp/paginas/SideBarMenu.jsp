@@ -11,7 +11,7 @@
     if (!isLogged) {
 
         List<String> messages = new ArrayList<>();
-        messages.add("You need to log in to access the administrative panel");
+        messages.add("Você precisa fazer login para acessar o painel administrativo");
 
         session.setAttribute("warning_message", messages);
 
