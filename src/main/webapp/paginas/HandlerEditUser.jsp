@@ -29,6 +29,7 @@
         messages.add("Esta funcionalidade só é permitido para Administradores");
         session.setAttribute("error_message", messages);
         response.sendRedirect(redirectUrl);
+        return;
     }
 
     String name = request.getParameter("name");
@@ -60,6 +61,7 @@
         session.setAttribute("form_data", formData);
 
         response.sendRedirect(redirectUrl);
+        return;
     }
 
     switch (profileId) {

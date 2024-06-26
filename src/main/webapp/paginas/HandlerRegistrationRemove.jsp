@@ -7,52 +7,49 @@
 <%@page import="java.util.List" %>
 <%@ include file="../basedados/basedados.h" %>
 <%@ include file="javaMd5.jsp" %>
-<%@ include file="Constants.jsp" %>
-<%@ include file="EnrollmentsStatus.jsp" %>
 <%@ include file="LoggedUser.jsp" %>
 
 <%
     session.setAttribute("error_message", null);
 
     List<String> messages = new ArrayList<>();
-
+    
+    if (!isLogged) {
+        messages.add("Você precisa fazer login para acessar o painel administrativo");
+        session.setAttribute("warning_message", messages);
+        response.sendRedirect("login.jsp");
+        return;
+    }
 
     int registrationId = Integer.parseInt(Objects.requireNonNullElse(request.getParameter("id"), "0"));
 
     if (registrationId == 0) {
         session.setAttribute("404_message", "Informe o identificado da inscrição");
         response.sendRedirect("404.jsp");
-        return;
     }
 
     String redirectUrl = "registrations.jsp";
 
-    if (loggedUser.profileId == Constants.STUDENT) {
-        messages.add("Esta funcionalidade só é permitido para Administradores e Docentes");
-        session.setAttribute("error_message", messages);
-        response.sendRedirect(redirectUrl);
-        return;
-    }
-
     try {
 
-        String sql = "UPDATE StudentEnrollments SET EnrollmentsStatusId=? WHERE id=?";
+        String sql = "UPDATE StudentEnrollments SET IsDeleted=? WHERE id=?";
 
         PreparedStatement stmt = conn.prepareStatement(sql);
 
         stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, EnrollmentsStatus.approved);
+        stmt.setInt(1, 1);
         stmt.setInt(2, registrationId);
 
         int rowsUpdated = stmt.executeUpdate();
 
         if (rowsUpdated > 0) {
-            messages.add(String.format("Inscrição %d aprovada com sucesso!", registrationId));
+            messages.add(String.format("Inscrição %d elimnada com sucesso!", registrationId));
             session.setAttribute("success_message", messages);
-        } else messages.add("Não foi possivel aprovar a inscrição, tente novamente!");
+        } else messages.add("Não foi possivel elimnada a inscrição, tente novamente!");
 
         conn.commit();
         stmt.close();
+
         response.sendRedirect(redirectUrl);
 
     } catch (Exception e) {

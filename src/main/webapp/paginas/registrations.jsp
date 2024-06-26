@@ -153,11 +153,17 @@
                                     </div>
                                 </a>
                                 <% } %>
-
-                                <a href="HandlerRegistrationRefuse.jsp?id=<%= rs.getString("Id") %>">
+                                
+                                
+                                <% 
+                                	String tolltipMessage = (loggedUser.profileId == Constants.STUDENT) ? "Remover inscrição" : "Recusar inscrição do aluno";
+                                	String handleRegistrationRefuseUrl  = (loggedUser.profileId == Constants.STUDENT) ? "HandlerRegistrationRemove.jsp" : "HandlerRegistrationRefuse.jsp";
+                                %>
+                                
+                                <a href="<%= handleRegistrationRefuseUrl %>?id=<%= rs.getString("Id") %>">
                                     <div class="tooltip">
                                         <i class="fas fa-times red-text" style="font-size: 22px"></i>
-                                        <span class="tooltipText">Recusar inscrição do aluno</span>
+                                        <span class="tooltipText"><%= tolltipMessage %></span>
                                     </div>
                                 </a>
                                 <a href="#">

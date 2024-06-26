@@ -30,6 +30,7 @@
         messages.add("Esta funcionalidade só é permitido para Administradores e Docentes");
         session.setAttribute("error_message", messages);
         response.sendRedirect(redirectUrl);
+        return;
     }
 
     try {

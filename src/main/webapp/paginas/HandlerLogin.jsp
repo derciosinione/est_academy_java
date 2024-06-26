@@ -57,6 +57,7 @@
         session.setAttribute("nif", rs.getString("Nif"));
 
         response.sendRedirect("dashboard.jsp");
+        
     } catch (Exception ex) {
         ex.printStackTrace();
     } finally {
