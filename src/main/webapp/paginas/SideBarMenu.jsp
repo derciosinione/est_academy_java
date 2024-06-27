@@ -61,7 +61,7 @@ boolean isActive = activeSettingsPages.contains(currentFileName);
 		</ul>
 
 		<ul
-			<%if (currentFileName.equals("courses") || currentFileName.equals("course-detail")) {%>
+			<%if (currentFileName.equals("courses") || currentFileName.equals("course-detail") || currentFileName.equals("student-course-details")) {%>
 			class="active-sidebar-menu" <%}%>>
 			<div class="active-sidebar-menu-line"></div>
 			<li><a href="courses.jsp"> <i
