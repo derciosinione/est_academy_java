@@ -1,14 +1,14 @@
 <%
-	if (session != null) session.invalidate();
+    if (session != null) session.invalidate();
 %>
 
 <div
-	style='margin: 0 auto; background-color: #1C344F; padding: 30px; border-radius: 10px; text-align: center; color: white;'>
-	<h1>
-		Aguardando aprovação do administrador
-		<h1>
-			<br>
-			<p>O teu login ainda não foi aprovado pelo administrador</p>
-			<a href="index.jsp">Pagina inicial</a>
+        style='margin: 0 auto; background-color: #1C344F; padding: 30px; border-radius: 10px; text-align: center; color: white;'>
+    <h1>
+        Aguardando aprovaï¿½ï¿½o do administrador
+        <h1>
+            <br>
+            <p>O teu login ainda nï¿½o foi aprovado pelo administrador</p>
+            <a href="index.jsp">Pagina inicial</a>
 </div>
 

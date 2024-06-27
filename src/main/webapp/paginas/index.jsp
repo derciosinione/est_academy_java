@@ -67,7 +67,7 @@
 
     <section class="about-card">
         <div class="about-img keep-show">
-            <img src="Img/about.jpg" alt="">
+            <img src="about.jpg" alt="">
         </div>
 
         <div class="home-content-description">
@@ -161,7 +161,7 @@
         </div>
 
         <div class="about-img">
-            <img src="Img/feature.jpg" alt="">
+            <img src="feature.jpg" alt="">
         </div>
     </section>
 
@@ -176,7 +176,7 @@
             <div class="transition-scale">
                 <a href="cursos-detalhes.jsp">
                     <div class="course-img">
-                        <img src="Img/courses-1.jpg" alt="">
+                        <img src="coursebg.png" alt="">
                     </div>
                     <div class="course-body">
                         <h6>Desenvolvimento Web</h6>
@@ -188,7 +188,7 @@
             <div class="transition-scale">
                 <a href="cursos-detalhes.jsp">
                     <div class="course-img">
-                        <img src="Img/courses-4.jpg" alt="">
+                        <img src="coursebg.png" alt="">
                     </div>
                     <div class="course-body">
                         <h6>Introdução a Html5 e Css</h6>
@@ -200,7 +200,7 @@
             <div class="transition-scale">
                 <a href="cursos-detalhes.jsp">
                     <div class="course-img">
-                        <img src="Img/courses-3.jpg" alt="">
+                        <img src="coursebg.png" alt="">
                     </div>
                     <div class="course-body">
                         <h6>Big Data</h6>
@@ -212,7 +212,7 @@
             <div class="transition-scale">
                 <a href="cursos-detalhes.jsp">
                     <div class="course-img">
-                        <img src="Img/courses-2.jpg" alt="">
+                        <img src="coursebg.png" alt="">
                     </div>
                     <div class="course-body">
                         <h6>Logaritmo</h6>

@@ -12,24 +12,24 @@
     session.setAttribute("warning_message", null);
 
     List<String> messages = new ArrayList<>();
-  
+
     String name = request.getParameter("name");
     String email = request.getParameter("email");
     String nif = request.getParameter("nif");
     String phoneNumber = request.getParameter("phoneNumber");
     String birthday = request.getParameter("birthDay");
     String password = request.getParameter("password");
-    String confirmPassword = request.getParameter("confirmPassword");    
+    String confirmPassword = request.getParameter("confirmPassword");
     String avatarUrl = "studentavatar.jpg";
 
     messages = userValidator(name, email, phoneNumber, nif);
 
     if (!isValidDateFormat(birthday))
         messages.add("A data de nascimento deve estar no formato yyyy/mm/dd");
-    
-    if (password.isEmpty()) 
+
+    if (password.isEmpty())
         messages.add("A senha é obrigatório.");
-    
+
     if (!password.equals(confirmPassword))
         messages.add("As senhas não são compactivies.");
 
@@ -69,12 +69,12 @@
         stmt.setInt(7, Constants.STUDENT);
         stmt.setString(8, avatarUrl);
         stmt.setString(9, convertToMD5(password));
-      
+
         int rowsUpdated = stmt.executeUpdate();
 
         if (rowsUpdated > 0) {
             messages.add("Aluno criado com sucesso");
-         } else messages.add("Não foi possivel criar a conta de aluno, tente novamente!");
+        } else messages.add("Não foi possivel criar a conta de aluno, tente novamente!");
 
         conn.commit();
         stmt.close();

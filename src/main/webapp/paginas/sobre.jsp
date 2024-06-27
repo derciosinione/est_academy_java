@@ -51,7 +51,7 @@
 <main>
     <section class="about-card">
         <div class="about-img keep-show">
-            <img src="Img/about.jpg" alt="">
+            <img src="about.jpg" alt="">
         </div>
 
         <div class="home-content-description">
@@ -145,7 +145,7 @@
         </div>
 
         <div class="about-img">
-            <img src="Img/feature.jpg" alt="">
+            <img src="feature.jpg" alt="">
         </div>
     </section>
 

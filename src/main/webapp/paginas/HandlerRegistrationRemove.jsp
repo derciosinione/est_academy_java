@@ -13,7 +13,7 @@
     session.setAttribute("error_message", null);
 
     List<String> messages = new ArrayList<>();
-    
+
     if (!isLogged) {
         messages.add("Você precisa fazer login para acessar o painel administrativo");
         session.setAttribute("warning_message", messages);

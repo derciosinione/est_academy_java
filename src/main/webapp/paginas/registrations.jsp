@@ -128,7 +128,7 @@
                     <tr>
                         <td class="td-line">
                             <div class="avatar">
-                                <img src="Img/<%= rs.getString("AvatarUrl") %>">
+                                <img src="<%= rs.getString("AvatarUrl") %>">
                             </div>
                             <div>
                                 <%= rs.getString("StudentName") %>
@@ -153,13 +153,13 @@
                                     </div>
                                 </a>
                                 <% } %>
-                                
-                                
-                                <% 
-                                	String tolltipMessage = (loggedUser.profileId == Constants.STUDENT) ? "Remover inscrição" : "Recusar inscrição do aluno";
-                                	String handleRegistrationRefuseUrl  = (loggedUser.profileId == Constants.STUDENT) ? "HandlerRegistrationRemove.jsp" : "HandlerRegistrationRefuse.jsp";
+
+
+                                <%
+                                    String tolltipMessage = (loggedUser.profileId == Constants.STUDENT) ? "Remover inscrição" : "Recusar inscrição do aluno";
+                                    String handleRegistrationRefuseUrl = (loggedUser.profileId == Constants.STUDENT) ? "HandlerRegistrationRemove.jsp" : "HandlerRegistrationRefuse.jsp";
                                 %>
-                                
+
                                 <a href="<%= handleRegistrationRefuseUrl %>?id=<%= rs.getString("Id") %>">
                                     <div class="tooltip">
                                         <i class="fas fa-times red-text" style="font-size: 22px"></i>

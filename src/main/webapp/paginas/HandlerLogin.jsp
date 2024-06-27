@@ -44,21 +44,21 @@
             response.sendRedirect("login.jsp");
             return;
         }
-        
-        if(!rs.getBoolean("isApproved") && rs.getInt("profileId")==Constants.STUDENT){
-        	
-            if (session != null) session.invalidate(); 
-            
-        	response.sendRedirect("waitingApprove.jsp");
-        	return;
+
+        if (!rs.getBoolean("isApproved") && rs.getInt("profileId") == Constants.STUDENT) {
+
+            if (session != null) session.invalidate();
+
+            response.sendRedirect("waitingApprove.jsp");
+            return;
         }
-        
+
         session.setAttribute("isLogged", true);
         session.setAttribute("userId", rs.getInt("id"));
         session.setAttribute("name", rs.getString("name"));
         session.setAttribute("email", rs.getString("email"));
         session.setAttribute("username", rs.getString("username"));
-        session.setAttribute("avatarUrl", "Img/" + rs.getString("avatarUrl"));
+        session.setAttribute("avatarUrl", rs.getString("avatarUrl"));
         session.setAttribute("profileId", rs.getInt("profileId"));
         session.setAttribute("profileName", rs.getString("profileName"));
         session.setAttribute("phoneNumber", rs.getString("phonenumber"));
@@ -67,7 +67,7 @@
         session.setAttribute("isApproved", rs.getBoolean("IsApproved"));
 
         response.sendRedirect("dashboard.jsp");
-        
+
     } catch (Exception ex) {
         ex.printStackTrace();
     } finally {

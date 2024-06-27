@@ -67,7 +67,7 @@
     </div>
 
     <div class="bgImg">
-        <img alt="" src="Img/loginImg.png">
+        <img alt="" src="loginImg.png">
     </div>
 
     <script src="login.js"></script>

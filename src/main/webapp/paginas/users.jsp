@@ -107,11 +107,11 @@
                 <div class="user-card pb10 auto-height">
                     <a href="user-detail.jsp?id=<%= rs.getInt("Id") %>">
                         <div class="background-image">
-                            <img alt="" src="Img/studentbg1.png">
+                            <img alt="" src="studentbg1.png">
                         </div>
 
                         <div class="user-avatar">
-                            <img alt="" class="img-cover" src="Img/<%= rs.getString("AvatarUrl") %>">
+                            <img alt="" class="img-cover" src="<%= rs.getString("AvatarUrl") %>">
                         </div>
 
                         <div class="content-title">
