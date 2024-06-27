@@ -126,7 +126,7 @@
         </div>
 
         <aside>
-            <img src="courses-3.jpg">
+            <img src="coursebg.png">
         </aside>
     </section>
 </header>
