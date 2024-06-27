@@ -112,7 +112,7 @@
 						</div>
 						<div class="course-body">
 							<h6><%=rs.getString("Name")%></h6>
-							<span class="bg-dark-blue"><%=rs.getString("CreatorName")%></span>
+							<span class="bg-dark-blue"><%=rs.getString("Category")%></span>
 						</div>
 					</a>
 				</div>

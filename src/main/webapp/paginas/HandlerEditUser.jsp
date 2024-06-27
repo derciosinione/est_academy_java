@@ -21,6 +21,7 @@
     if (userId == 0) {
         session.setAttribute("404_message", "Informe o identificado do usuario");
         response.sendRedirect("404.jsp");
+        return;
     }
 
     String redirectUrl = "user-detail.jsp?id=" + userId;
